@@ -1,0 +1,60 @@
+
+Question 1:
+a.
+	let array = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+b.
+	function insertPerson(array, newPerson){
+		array.push(newPerson);
+		return array;
+		}
+	console.log(insertPerson(array, "Mary"));
+
+c.d
+	function findPerson(array, person){
+		if(array.includes(person)){
+			return array.indexOf(person);}
+		else{
+			return `${person} is not in this array`};
+		}
+	console.log(findPerson(array, "Josh"));
+	console.log(findPerson(array, "Emily"));
+
+
+e. 
+	function addNewPerson (array, currentPerson, newPerson){
+		let currentPersonIndex = array.indexOf(currentPerson);
+		array.splice(currentPersonIndex, 0, newPerson);
+		return array;
+		}
+	
+	console.log(addNewPerson(array, 'Ava', 'Melissa'));
+
+f. 
+	function deletePerson(array, person){
+		personIndex = array.indexOf(person);
+		array.splice(personIndex, 1)
+		return array;
+		}
+	
+	console.log(deletePerson(array, 'Patrick'));
+
+Question 2: Provide another real-world example that you can model using a data structure.
+	We can delete the last person in the array by using pop() method, delete the first person by using shift() method.
+	We can new person to the beginning of the array by using unshift() method.
+	We can sort elements in the array alphabetically or in order by using sort() method. 
+	
+
+Question 3: How would your data structure allow developers to access and manipulate the data?
+	Because array is a container, which stores elements inside its array with index(the location of element). So, programmers 
+	can use index to manipulate and access the data. Besides, array has many methods, data structures make use of these methods to 
+	implement the algorithms. 
+
+	
+	
+
+
+
+
+
+
+
