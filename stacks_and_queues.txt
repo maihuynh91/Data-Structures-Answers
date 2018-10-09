@@ -1,0 +1,104 @@
+Quesiton 1: What is the main difference between a stack and a queue?
+	Stack: data structure implements the LIFO priority collection.The insertions and deletions are taken from one end.
+	Queue: data structure implements the FIFO priority collection. The insertions are taken from the rear end of queue, 
+		deletion are taken from front end of queue. 
+
+Question 2: What are the similarities between stacks and queues?
+	Elements of both data structures are stored and retrieved.
+	Both are linear data structures. 
+
+Quesiton 3: Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. 
+Which data structure would you use for each option and why?
+	UNDO: we want to reverse the most recently implemented data, so using STACK because stack implements data following the LIFO standard.
+	REDO: 
+
+Programming Questions
+
+Question 1:
+	function reverseString(originalString){
+    		let newStack=[], reversedString="", count=0;
+    		newStack.push(...originalString);
+
+    		let len = newStack.length;
+    
+    		while (count < len){
+        		let character = newStack.pop();
+        		reversedString+= character;
+        		count++;        
+    				}
+    		return reversedString;
+				}
+
+	console.log(reverseString('Bloc!'));
+
+Question 2:
+	let array = [1,2,3,4,5,6];
+
+	function implementingPopMethod(array){
+    		if(array.length === 0){
+        	return false;
+    		};
+
+    	let removedItem="", newArray=[];
+    	for(let i = 0; i<array.length;i++){
+        if(i !== array.length-1){
+            newArray.push(array[i]);
+        }else{
+            removedItem += array[i];
+              };
+    		}; 
+       return `Removed item is ${removedItem}.`
+		};
+
+       console.log(implementingPopMethod(array));
+
+
+Question: Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+	class Queue{
+    		constructor(){
+        	this.array =  [];
+    		};
+
+    	isEmpty(){
+        	return this.array.length === 0;
+    		}
+  
+    	dequeue(element){
+        	if(this.isEmpty()){
+            		return  "Empty!";
+        		};
+
+        	this.array.shift(element);
+        	console.log(this.array ); 
+    			}
+
+    	enqueue(element){
+        	this.array.push(element);
+        	return this.array;     
+    			};
+
+    	printQueue(){
+        	console.log(this.array);
+    			};
+
+		}
+
+	let newQueue = new Queue();
+	newQueue.enqueue(99);
+	newQueue.enqueue(10);
+	newQueue.enqueue(88);
+	newQueue.enqueue(9999);
+	newQueue.enqueue(98);
+	newQueue.dequeue()
+	//newQueue.printQueue();
+
+
+
+
+
+
+
+
+
+

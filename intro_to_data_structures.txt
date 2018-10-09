@@ -49,6 +49,12 @@ Question 3: How would your data structure allow developers to access and manipul
 	can use index to manipulate and access the data. Besides, array has many methods, data structures make use of these methods to 
 	implement the algorithms. 
 
+
+Arrays are used to store data in a sequence, one element after another. By combining the location 
+of the data and the ability to recover any element by using an index, the array simplifies access
+ to and manipulation of ordered elements. Arrays are a good choice for collections of simple data 
+ types such as strings, numbers, etc
+
 	
 	
 
