@@ -1,0 +1,242 @@
+Question 1: What are some pros and cons of using linked lists instead of arrays?
+	Pros: Linked list provides dynamic size and ease of deletion/insertion. Each node in array is independent, so the OS may use any available
+memory to store data.
+	      
+
+	Cons: Random access is not allowed, we cannot directly access any element in a linked list.In linked lisr, we have to traverse each element
+starting from the beginning to find and access a specific element. Additionally, each element of the list requires extra memory space for a pointer. 
+
+Question 2: Come up with a real world example of a linked list.
+	A real world example of a linked list could be a Train. Each coach is connected between the next coach and the previous coach. We can not
+	go beyond the first coach(head) and the last coach(null). Coach body could be node value and connectors could be links. 
+
+Programming Questions
+
+Question 1: 
+
+Explantion of bug for PUSH function:
+		1. Function didn't create head
+		2. In the ELSE statement, function Push doesn't have a WHILE loop to loop all data. It only SET current to Head and
+		SET current.next to node, then ends Function.
+		
+		If we add more than 2 elements in linked list, function won't update all data of current.next.
+		E.g: we add 3 elements:  push(11); push(12); push(13);
+		The head shows       { value: 11, next: { value: 13, next: null } }    We see that we're missing value 12.
+
+		
+
+Plan: 
+
+	CREATE head = null
+	FUNCTION push(element)
+		CREATE node
+		SET node.value TO value
+		SET node.next TO null
+		
+		IF the head of node does not exits:	
+			THEN SET head to node
+		ELSE
+			SET current TO head
+			WHILE current.next is true:
+				current = current.next
+			END LOOP
+			SET current.next TO node
+		END IF
+		RETURN node
+ 	END FUNCTION
+
+Functional implementation of the method:
+
+        let head = null;
+        function push(element){   
+        let node={
+            value:element,
+            next:null
+        }
+        if(!head){
+            head = node;
+        }else{
+            let current = head;
+            while(current.next){
+                current = current.next;
+            }   
+            current.next = node; 
+        } 
+        }
+
+        push(11); push(12); push(13);
+        console.log(head);
+
+
+Question 2:Given an unsorted singly linked list, remove all duplicates from the linked list.
+
+Plan:
+	
+	head
+	FUNCTION removeDuplicates
+		IF (head == null OR head.next==null) THEN RETURN
+
+        	CREATE nodes={}
+		CREATE current
+        	SET current TO head
+		SET next TO current.next
+        	SET nodes[current.value] = true
+
+        	WHILE current.next === TRUE {
+			CREATE temp
+            		SET  temp = next.value
+            		IF nodes[temp] already exits then {
+                		SET current.next = next.next
+            				}
+            		ELSE{
+                		SET nodes[temp] = true;
+                		SET current= next;
+            			}
+			END IF
+            		SET next = next.next
+		END LOOP
+	END FUNCTION
+
+
+Implementation:
+
+
+	function removeDuplicates(){
+        	if(head == null || head.next==null)return;
+        	let nodes={};
+       	        let current = head, next = current.next;
+        	nodes[current.value] = true;
+
+        	while(current.next){
+            		let temp = next.value;
+            		if(nodes[temp]){
+                		current.next = next.next;
+            			}
+            		else{
+                		nodes[temp] = true;
+                		current= next;
+            				}
+            	next = next.next;
+        		}
+    			};
+		}
+
+Question 3:Given an unsorted singly linked list, reverse it.
+
+Plan:
+	FUNCTION reverseList
+		CREATE current, CREATE next, CREATE previous
+		SET current TO head
+		SET next TO null
+		SET previous TO null
+		WHILE (current is true)
+			SET next = current.next
+			SET current.next = previous
+			SET previous = current
+			SET current = next
+		END LOOP
+		SET head to previous
+	END FUNCTION
+
+Implementation: 
+
+	function reverseList() {
+        	let current = head, next = null,  previous = null;
+  
+        	while(current) {
+            		next = current.next;    
+            		current.next = previous;      
+            		previous = current;
+            		current = next;
+        			}
+        	head = previous;
+        	};
+
+***********Class include addElement function, removeDuplicates function, ReverseList function***********
+
+class LinkedList{
+    constructor(){
+        this.head = null;
+    
+    };
+
+    addElement(value){
+        let node={
+        value: value,
+        next: null
+    };
+        if(!this.head){
+            this.head =  node;
+        }else{
+            let current = this.head;
+            while(current.next){
+                current = current.next;         
+            }current.next = node;         
+        }; 
+            return node;
+            };
+
+    printLinkedLIst(){
+        let current = this.head;
+        let string = "";
+        while(current){
+            string += current.value + " "
+            current = current.next
+        } console.log(string.trim())
+    };
+
+    removeDuplicates(){
+        if(this.head == null || this.head.next==null)return;
+        let nodes={};
+        let current = this.head, next = current.next;
+        nodes[current.value] = true;
+        while(current.next){
+            let temp = next.value;
+            if(nodes[temp]){
+                current.next = next.next;
+            }
+            else{
+                nodes[temp] = true;
+                current= next;
+            }
+            next = next.next;
+        }
+    };
+
+    reverseList() {
+        let current = this.head, next = null,  previous = null;
+  
+        while(current) {
+            next = current.next;    
+            current.next = previous;      
+            previous = current;
+            current = next;
+        }
+        this.head = previous;
+        }
+        
+}
+
+let ll = new LinkedList;
+
+ll.addElement(11); ll.addElement(11); ll.addElement(123)ll.addElement(13); ll.addElement(11); ll.addElement(99); 
+ll.addElement(55555);ll.addElement(99); ll.addElement(55555);ll.addElement(99);ll.addElement(55555);
+
+ll.removeDuplicates()
+ll.printLinkedLIst()
+ll.reverseList();
+ll.printLinkedLIst()
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
