@@ -1,8 +1,10 @@
 function hash(key, tableSize) {
   var hash = 0;
-  for(var i = 0; i < key.length; i++){
+  for(var i = 0; i < key.length; i++){  //
     hash += key.charCodeAt(i);
   }
+  // hash(key) {
+  //   return key.toString().length; }
   return hash % tableSize;  
 };
   
@@ -30,6 +32,7 @@ function hash(key, tableSize) {
       } else {
         for(var i = 0; i < storage[index].length; i++) {
           if(storage[index][i][0] === phone) {
+           // console.log('storage index is ' + storage[index][i][0])
             return `Phone: ${storage[index][i][0]} |Name: ${storage[index][i][1]} |Add: ${storage[index][i][2]}`;
           } else {
             return "***Customer does not exist***";

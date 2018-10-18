@@ -21,8 +21,8 @@ Question 5: Determine whether you would use a hash table or an object to store e
 	All of the books checked out from a library by a particular individual: Hash Table
 	The primary and secondary phone numbers for a contact: Object
 
-Question 6: Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and
-look up customers using their phone numbers. Store this information in a hash table.
+{Question 6: Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and
+look up customers using their phone numbers. Store this information in a hash table.}
 
     function hash(key, tableSize) {
       var hash = 0;
